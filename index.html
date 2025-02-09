@@ -64,7 +64,7 @@
         Rif, I love you so much and thank you for the most incredible year of my life. Every moment with you has been filled with laughter, warmth, and the kind of love I never knew I needed. You are my best friend, my greatest adventure, and the person who makes every day brighter. I can't imagine life without you, and I am so grateful for every memory we've created together. I can't wait to spend the rest of my life with you. You are my forever valentine. 💌
     </div>
     <div class="game-container" id="game-container" style="position: relative; width: 100vw; height: 70vh;"></div>
-    <div class="hidden-message" id="message" style="display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Rif, will you be my Valentine? 💕
+    <div class="hidden-message" id="message" style="display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); border: 2px solid #ff99cc;">Rif, will you be my Valentine? 💕
         <div class="buttons">
             <button class="yes" onclick="showResult('yes')">Yes!</button>
             <button class="no" onclick="showResult('no')">No (if you want me to be sad forever 😭)</button>
@@ -90,6 +90,7 @@
                     heart.remove();
                     heartsClicked++;
                     if (heartsClicked === 7) {
+                        setTimeout(() => { document.getElementById("message").style.display = "block"; }, 500);
                         document.getElementById("message").style.display = "block";
                     }
                 });
@@ -102,9 +103,9 @@
             let result = document.getElementById("result");
             result.style.display = "block";
             if (choice === 'yes') {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg" width="200px"><br>YAY! 💖';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg?raw=true" width="200px"><br>YAY! 💖';
             } else {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png" width="200px"><br>😭 Why would you do this to me?';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png?raw=true" width="200px"><br>😭 Why would you do this to me?';
             }
         }
     </script>
