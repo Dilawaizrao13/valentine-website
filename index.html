@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #ff4d88;
+            margin-top: 50px;
+            font-size: 2em;
+            text-shadow: 2px 2px white;
+        }
+        .description {
+            font-size: 1.3em;
+            color: #ff6699;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 60%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .game-container {
+            position: relative;
+            width: 100vw;
+            height: 60vh;
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            animation: float 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .hidden-message {
+            display: none;
+            font-size: 1.5em;
+            color: #ff4d88;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Click on the floating hearts to reveal a surprise! 💖</h1>
+    <div class="description">
+        Rif, I love you so much and thank you for the most incredible year of my life. Every moment with you has been filled with laughter, warmth, and the kind of love I never knew I needed. You are my best friend, my greatest adventure, and the person who makes every day brighter. I can't imagine life without you, and I am so grateful for every memory we've created together. 💕
+    </div>
+    <div class="game-container" id="game-container"></div>
+    <div class="hidden-message" id="message">Rif, will you be my Valentine? 💕</div>
+    <audio autoplay loop>
+        <source src="https://example.com/sailor-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        const gameContainer = document.getElementById("game-container");
+        let heartsClicked = 0;
+        
+        for (let i = 0; i < 7; i++) {
+            let heart = document.createElement("img");
+            heart.src = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Red_heart.svg";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 90 + "vw";
+            heart.style.top = Math.random() * 60 + "vh";
+            heart.addEventListener("click", function() {
+                heart.remove();
+                heartsClicked++;
+                if (heartsClicked === 7) {
+                    document.getElementById("message").style.display = "block";
+                }
+            });
+            gameContainer.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
