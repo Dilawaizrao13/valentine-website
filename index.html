@@ -93,9 +93,12 @@
                         setTimeout(() => {
                             let message = document.getElementById("message");
                             message.style.display = "block";
-                            message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            message.style.position = "fixed";
+                            message.style.left = "50%";
+                            message.style.top = "50%";
+                            message.style.transform = "translate(-50%, -50%)";
+                            message.style.zIndex = "1000";
                         }, 500);
-                        document.getElementById("message").style.display = "block";
                     }
                 });
                 gameContainer.appendChild(heart);
@@ -107,9 +110,9 @@
             let result = document.getElementById("result");
             result.style.display = "block";
             if (choice === 'yes') {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg" width="300px"><br>YAY! 💖';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg?raw=true" width="300px"><br>YAY! 💖';
             } else {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png" width="300px"><br>😭 Why would you do this to me?';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png?raw=true" width="300px"><br>😭 Why would you do this to me?';
             }
         }
     </script>
