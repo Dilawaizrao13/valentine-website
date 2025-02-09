@@ -108,6 +108,17 @@
         function showResult(choice) {
             document.getElementById("message").style.display = "none";
             let result = document.getElementById("result");
+            result.style.position = "fixed";
+            result.style.left = "50%";
+            result.style.top = "50%";
+            result.style.transform = "translate(-50%, -50%)";
+            result.style.zIndex = "1000";
+            result.style.background = "white";
+            result.style.padding = "20px";
+            result.style.borderRadius = "15px";
+            result.style.textAlign = "center";
+            result.style.boxShadow = "3px 3px 10px rgba(0, 0, 0, 0.2)";
+            result.style.border = "2px solid #ff99cc";
             result.style.display = "block";
             if (choice === 'yes') {
                 result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg?raw=true" width="300px"><br>YAY! 💖';
