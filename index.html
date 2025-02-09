@@ -7,21 +7,16 @@
     <style>
         body {
             background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Facetune_02-12-2024-23-15-08.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            animation: backgroundSlide 20s infinite ease-in-out;
-            animation-duration: 30s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: backgroundSlide 20s infinite linear;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: backgroundSlide 20s infinite alternate;
+            background-attachment: fixed;
+            animation: backgroundSlide 30s infinite ease-in-out;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            background-color: #ffe6f2;
+            overflow: hidden;
+            position: relative;
         }
         
         @keyframes backgroundSlide {
@@ -31,20 +26,34 @@
             75% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Tezza-6554.png'); }
             100% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Facetune_02-12-2024-23-15-08.png'); }
         }
-            25% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/IMG_4910.png'); }
-            50% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/IMG_9812%202.png'); }
-            75% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Tezza-6554.png'); }
-            100% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Facetune_02-12-2024-23-15-08.png'); }
+        h1, .description, .hidden-message {
+            color: #ff4d88;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ff99cc;
         }
-            33% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/IMG_4910.png'); }
-            66% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/IMG_9812%202.png'); }
-            100% { background-image: url('https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/Tezza-6554.png'); }
+        .buttons button {
+            background: white;
+            color: #ff4d88;
+            border: 2px solid #ff99cc;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            transition: 0.3s;
         }
-        text-align: center;
-        font-family: 'Times New Roman', serif;
-        background-color: #ffe6f2;
-        overflow: hidden;
-        position: relative;
+        .buttons button:hover {
+            background: #ff99cc;
+            color: white;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -53,11 +62,12 @@
         Rif, I love you so much and thank you for the most incredible year of my life. Every moment with you has been filled with laughter, warmth, and the kind of love I never knew I needed. You are my best friend, my greatest adventure, and the person who makes every day brighter. I can't imagine life without you, and I am so grateful for every memory we've created together. I can't wait to spend the rest of my life with you. You are my forever valentine. 💌
     </div>
     <div class="game-container" id="game-container"></div>
-    <div class="hidden-message" id="message">Rif, will you be my Valentine? 💕
+    <div class="hidden-message" id="message" style="display: none;">Rif, will you be my Valentine? 💕
         <div class="buttons">
             <button class="yes" onclick="showResult('yes')">Yes!</button>
             <button class="no" onclick="showResult('no')">No (if you want me to be sad forever 😭)</button>
         </div>
+    </div>
     </div>
     <div class="result" id="result"></div>
     <audio autoplay loop>
@@ -71,7 +81,7 @@
             
             for (let i = 0; i < 7; i++) {
                 let heart = document.createElement("img");
-                heart.src = "https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/floating%20heart%20image.png?raw=true";
+                heart.src = "https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/floating%20heart%20image.png";
                 heart.classList.add("heart");
                 heart.style.left = Math.random() * 80 + "vw";
                 heart.style.top = Math.random() * 50 + "vh";
@@ -93,9 +103,9 @@
             let result = document.getElementById("result");
             result.style.display = "block";
             if (choice === 'yes') {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg?raw=true" width="200px"><br>YAY! 💖';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg" width="200px"><br>YAY! 💖';
             } else {
-                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png?raw=true" width="200px"><br>😭 Why would you do this to me?';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png" width="200px"><br>😭 Why would you do this to me?';
             }
         }
     </script>
