@@ -7,7 +7,7 @@
     <style>
         body {
             text-align: center;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Times New Roman', serif;
             background-color: #ffe6f2;
             overflow: hidden;
             position: relative;
@@ -32,6 +32,7 @@
             position: relative;
             width: 100vw;
             height: 60vh;
+            overflow: hidden;
         }
         .heart {
             position: absolute;
@@ -45,7 +46,7 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0px); }
         }
-        .hidden-message {
+        .hidden-message, .buttons, .result {
             display: none;
             font-size: 1.5em;
             color: #ff4d88;
@@ -58,37 +59,68 @@
             top: 50%;
             transform: translate(-50%, -50%);
         }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes { background-color: #ff4d88; color: white; }
+        .no { background-color: #ddd; color: black; }
     </style>
 </head>
 <body>
     <h1>Click on the floating hearts to reveal a surprise! 💖</h1>
     <div class="description">
-        Rif, I love you so much and thank you for the most incredible year of my life. Every moment with you has been filled with laughter, warmth, and the kind of love I never knew I needed. You are my best friend, my greatest adventure, and the person who makes every day brighter. I can't imagine life without you, and I am so grateful for every memory we've created together. 💕
+        Rif, I love you so much and thank you for the most incredible year of my life. Every moment with you has been filled with laughter, warmth, and the kind of love I never knew I needed. You are my best friend, my greatest adventure, and the person who makes every day brighter. I can't imagine life without you, and I am so grateful for every memory we've created together. I can't wait to spend the rest of my life with you. You are my forever valentine. 💌
     </div>
     <div class="game-container" id="game-container"></div>
-    <div class="hidden-message" id="message">Rif, will you be my Valentine? 💕</div>
+    <div class="hidden-message" id="message">Rif, will you be my Valentine? 💕
+        <div class="buttons">
+            <button class="yes" onclick="showResult('yes')">Yes!</button>
+            <button class="no" onclick="showResult('no')">No (if you want me to be sad forever 😭)</button>
+        </div>
+    </div>
+    <div class="result" id="result"></div>
     <audio autoplay loop>
         <source src="https://example.com/sailor-song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <script>
-        const gameContainer = document.getElementById("game-container");
-        let heartsClicked = 0;
-        
-        for (let i = 0; i < 7; i++) {
-            let heart = document.createElement("img");
-            heart.src = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Red_heart.svg";
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 90 + "vw";
-            heart.style.top = Math.random() * 60 + "vh";
-            heart.addEventListener("click", function() {
-                heart.remove();
-                heartsClicked++;
-                if (heartsClicked === 7) {
-                    document.getElementById("message").style.display = "block";
-                }
-            });
-            gameContainer.appendChild(heart);
+        document.addEventListener("DOMContentLoaded", function() {
+            const gameContainer = document.getElementById("game-container");
+            let heartsClicked = 0;
+            
+            for (let i = 0; i < 7; i++) {
+                let heart = document.createElement("img");
+                heart.src = "/mnt/data/vecteezy_heart-glossy_1187549.png";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 80 + "vw";
+                heart.style.top = Math.random() * 50 + "vh";
+                heart.style.position = "absolute";
+                heart.addEventListener("click", function() {
+                    heart.remove();
+                    heartsClicked++;
+                    if (heartsClicked === 7) {
+                        document.getElementById("message").style.display = "block";
+document.querySelector(".buttons").style.display = "block";
+                    }
+                });
+                gameContainer.appendChild(heart);
+            }
+        });
+
+        function showResult(choice) {
+            document.getElementById("message").style.display = "none";
+            let result = document.getElementById("result");
+            result.style.display = "block";
+            if (choice === 'yes') {
+                result.innerHTML = '<img src="/mnt/data/bc5908bb90c8d87769063e01f14f69e5.jpg" width="200px"><br>YAY! 💖';
+            } else {
+                result.innerHTML = '<img src="/mnt/data/sad-sadness.png" width="200px"><br>😭 Why would you do this to me?';
+            }
         }
     </script>
 </body>
