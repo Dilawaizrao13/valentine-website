@@ -95,7 +95,7 @@
             
             for (let i = 0; i < 7; i++) {
                 let heart = document.createElement("img");
-                heart.src = "https://github.com/Dilawaizrao13/valentine-website/blob/main/floating%20heart%20image.png";
+                heart.src = "https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/floating%20heart%20image.png?raw=true";
                 heart.classList.add("heart");
                 heart.style.left = Math.random() * 80 + "vw";
                 heart.style.top = Math.random() * 50 + "vh";
@@ -117,11 +117,12 @@ document.querySelector(".buttons").style.display = "block";
             let result = document.getElementById("result");
             result.style.display = "block";
             if (choice === 'yes') {
-                result.innerHTML = '<img src="https://github.com/Dilawaizrao13/valentine-website/blob/main/happy%20Hello%20Kitty%20image.jpg="200px"><br>YAY! 💖';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/happy%20Hello%20Kitty%20image.jpg?raw=true" width="200px"><br>YAY! 💖';
             } else {
-                result.innerHTML = '<img src="https://github.com/Dilawaizrao13/valentine-website/blob/main/sad%20Hello%20Kitty%20image.png="200px"><br>😭 Why would you do this to me?';
+                result.innerHTML = '<img src="https://raw.githubusercontent.com/Dilawaizrao13/valentine-website/main/sad%20Hello%20Kitty%20image.png?raw=true" width="200px"><br>😭 Why would you do this to me?';
             }
         }
     </script>
 </body>
 </html>
+
